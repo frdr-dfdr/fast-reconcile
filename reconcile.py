@@ -141,13 +141,13 @@ def search(raw_query, query_type='/fast/all'):
     query_index = query_type_meta[0]['index']
     try:
         #FAST api requires spaces to be encoded as %20 rather than +
-        url = api_base_url + '?query=' + urllib.quote(query)
+        url = api_base_url + '?query=' + urllib.parse.quote(query)
         url += '&rows=30&queryReturn=suggestall%2Cidroot%2Cauth%2cscore&suggest=autoSubject'
         url += '&queryIndex=' + query_index + '&wt=json'
         app.logger.debug("FAST API url is " + url)
         resp = requests.get(url)
         results = resp.json()
-    except Exception, e:
+    except Exception as e:
         app.logger.warning(e)
         return out
     for position, item in enumerate(results['response']['docs']):
