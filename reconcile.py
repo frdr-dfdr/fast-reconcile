@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 An OpenRefine reconciliation service for the API provided by
 OCLC for FAST.
@@ -230,6 +232,7 @@ if __name__ == '__main__':
     from optparse import OptionParser
     oparser = OptionParser()
     oparser.add_option('-d', '--debug', action='store_true', default=False)
+    oparser.add_option('-p', '--port', type='int', default=5000)
     opts, args = oparser.parse_args()
     app.debug = opts.debug
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=opts.port)
