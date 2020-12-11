@@ -1,4 +1,8 @@
 flask
+flask-restful
+lxml
 fuzzywuzzy
 requests
+requests_cache
+simplejson
 python-Levenshtein
