@@ -6,3 +6,4 @@ requests
 requests_cache
 simplejson
 python-Levenshtein
+gunicorn
